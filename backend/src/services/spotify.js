@@ -42,17 +42,14 @@ const searchAndCreatePlaylist = async (spotifyApi, tracks, prompt) => {
             const searchResult = await spotifyApi.searchTracks(`${track.title} ${track.artist}`);
             if (searchResult.body.tracks.items.length > 0) {
                 trackUris.push(searchResult.body.tracks.items[0].uri);
-                console.log(`Música encontrada: ${track.title} - ${track.artist}`);
-            } else {
-                console.log(`Música NÃO encontrada: ${track.title} - ${track.artist}`);
             }
         } catch (searchError) {
-            console.error('Erro ao buscar música no Spotify:', searchError.message);
+            console.error(searchError.message);
         }
     }
 
     if (trackUris.length === 0) {
-        throw new Error('Nenhuma música foi encontrada no Spotify com base na sua descrição.');
+        throw new Error('No tracks were found on Spotify based on your description.');
     }
 
     const playlistName = 'MelodIA';

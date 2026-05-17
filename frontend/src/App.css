@@ -104,7 +104,6 @@ body {
   background-color: #6C63FF;
   color: #F8F9FA;
   cursor: default;
-  /* Você pode adicionar mais estilos para sinalizar o estado */
 }
 
 .btn:disabled {
@@ -115,40 +114,23 @@ body {
 
 .playlist-result {
   background-color: #1a2e05;
-  border: 2px solid #28a745;
-  border-radius: 8px;
-  padding: 1.5rem;
+  border: 1px solid #28a745;
+  border-radius: 5px;
+  padding: 1rem;
   margin-top: 1rem;
-  animation: fadeIn 0.5s ease-in;
 }
 
 .playlist-link {
   display: inline-block;
-  background: linear-gradient(135deg, #1db954, #1ed760);
+  background-color: #1db954;
   color: white;
   text-decoration: none;
-  padding: 12px 24px;
-  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
   font-weight: bold;
-  font-size: 1.1rem;
   margin-top: 1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
 }
 
 .playlist-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(29, 185, 84, 0.4);
-  background: linear-gradient(135deg, #1ed760, #21e065);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  background-color: #1ed760;
 }

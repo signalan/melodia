@@ -9,7 +9,7 @@ app.use(cors());
 
 app.get('/', (req, res) => {
     res.json({
-        message: 'Bem-vindo ao gerador de playlists!'
+        message: 'Welcome to the playlist generator API!'
     });
 });
 
