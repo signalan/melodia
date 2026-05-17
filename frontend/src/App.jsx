@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'; // Importe useState e useEffect
 import './App.css';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [accessToken, setAccessToken] = useState('');
@@ -12,7 +14,7 @@ function App() {
   // Lógica para lidar com o login
   const handleLogin = () => {
     // Redireciona o usuário para a rota de autenticação do back-end
-    window.location.href = 'http://localhost:80/auth'; // Substitua pelo seu ngrok URL, se necessário
+    window.location.href = `${API_URL}/auth`;
   };
 
   // Função para gerar a playlist
@@ -27,7 +29,7 @@ function App() {
     setPlaylistResult(null);
 
     try {
-      const response = await fetch('http://localhost:80/generate', {
+      const response = await fetch(`${API_URL}/generate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,7 +72,7 @@ function App() {
       if (code) {
         // O back-end retornou um código, agora vamos trocar por um access token
         try {
-          const tokenResponse = await fetch('http://localhost:80/auth/token', {
+          const tokenResponse = await fetch(`${API_URL}/auth/token`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

@@ -33,32 +33,34 @@ Um gerador de playlists inteligente que transforma ideias em música usando IA.
 ### Configuração
 
 1. Clone o repositório
-2. Configure as variáveis de ambiente:
+2. Configure as variáveis de ambiente e instale as dependências:
 
 #### Backend
 ```bash
 cd backend
 cp .env.example .env
+npm install
 ```
 
-Edite o arquivo `.env` com suas credenciais:
+Edite o arquivo `backend/.env` com suas credenciais:
 ```
 SPOTIFY_CLIENT_ID=sua_client_id_aqui
 SPOTIFY_CLIENT_SECRET=sua_client_secret_aqui
-OPENAI_API_KEY=sua_api_key_aqui
 REDIRECT_URI=http://localhost
+OPENAI_API_KEY=sua_api_key_aqui
+PORT=80
 ```
 
 #### Frontend
 ```bash
 cd frontend
+cp .env.example .env
 npm install
 ```
 
-#### Backend
-```bash
-cd backend
-npm install
+Edite o arquivo `frontend/.env` apontando para a URL do backend:
+```
+VITE_API_URL=http://localhost:80
 ```
 
 ### Executar o projeto
@@ -110,15 +112,24 @@ npm run dev
 MelodIA/
 ├── frontend/           # React app
 │   ├── src/
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   └── main.jsx
 │   ├── public/
+│   ├── .env.example
+│   ├── index.html
 │   └── package.json
 ├── backend/            # Node.js API
 │   ├── src/
 │   │   ├── services/
+│   │   │   ├── openai.js
+│   │   │   └── spotify.js
 │   │   ├── routes.js
 │   │   └── app.js
 │   ├── .env.example
+│   ├── index.js
 │   └── package.json
+├── .gitignore
 └── README.md
 ```
 
